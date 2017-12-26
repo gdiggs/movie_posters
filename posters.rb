@@ -25,8 +25,8 @@ module Posters
       end
 
       result.write "public/#{filename}_bluray.jpg"
-    else
-      "public/#{filename}_bluray.jpg"
     end
+
+    "public/#{filename}_bluray.jpg"
   end
 end
