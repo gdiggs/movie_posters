@@ -1,0 +1,5 @@
+- locals[:posters].each do |poster|
+  .poster
+    %img(src="https://image.tmdb.org/t/p/w184#{poster}")
+    %a{href: "/poster?type=bluray&poster=#{poster}"} Blu-Ray
+    %a{href: "/poster?type=4k&poster=#{poster}"} 4K Ultra HD
