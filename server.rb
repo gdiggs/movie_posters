@@ -2,6 +2,7 @@ require 'sinatra'
 require 'mini_magick'
 require 'down'
 require 'json'
+require 'haml'
 require_relative 'movies'
 require_relative 'posters'
 
