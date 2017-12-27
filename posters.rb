@@ -7,7 +7,7 @@ module Posters
     when 'bluray'
       create_bluray(filename)
     when '4k'
-      puts '4K Ultra HD'
+      create_4k(filename)
     else
       puts 'Wrong type passed'
     end
@@ -28,5 +28,22 @@ module Posters
     end
 
     "public/#{filename}_bluray.jpg"
+  end
+
+  def create_4k(filename)
+    if not File.file?("public/#{filename}_4k.jpg")
+      temp_poster = Down.download("https://image.tmdb.org/t/p/w500/#{filename}.jpg")
+
+      first_image  = MiniMagick::Image.new(temp_poster.path)
+      second_image = MiniMagick::Image.new('img/4k.png')
+      result = first_image.composite(second_image) do |c|
+        c.compose 'Over'
+        c.geometry '100%'
+      end
+
+      result.write "public/#{filename}_4k.jpg"
+    end
+
+    "public/#{filename}_4k.jpg"
   end
 end
