@@ -8,4 +8,4 @@
 .yardoc
 doc/
 .env
-public/*
+public/*.jpg
