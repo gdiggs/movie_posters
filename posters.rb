@@ -17,12 +17,14 @@ module Posters
     unless File.file?("public/#{filename}_bluray.jpg")
       temp_poster = Down.download("https://image.tmdb.org/t/p/w500/#{filename}.jpg")
 
-      MiniMagick::Tool::Convert.new do |convert|
-        convert << 'img/bluray.jpg'
-        convert << temp_poster.path
-        convert << '-append'
-        convert << 'public/' + filename + '_bluray.jpg'
+      first_image  = MiniMagick::Image.new(temp_poster.path)
+      second_image = MiniMagick::Image.new('img/bluray.jpg')
+      result = first_image.composite(second_image) do |c|
+        c.compose 'Over'
+        c.geometry '100%'
       end
+
+      result.write "public/#{filename}_bluray.jpg"
     end
 
     "public/#{filename}_bluray.jpg"
@@ -32,12 +34,14 @@ module Posters
     unless File.file?("public/#{filename}_4k.jpg")
       temp_poster = Down.download("https://image.tmdb.org/t/p/w500/#{filename}.jpg")
 
-      MiniMagick::Tool::Convert.new do |convert|
-        convert << 'img/4k.jpg'
-        convert << temp_poster.path
-        convert << '-append'
-        convert << 'public/' + filename + '_4k.jpg'
+      first_image  = MiniMagick::Image.new(temp_poster.path)
+      second_image = MiniMagick::Image.new('img/4k.jpg')
+      result = first_image.composite(second_image) do |c|
+        c.compose 'Over'
+        c.geometry '100%'
       end
+
+      result.write "public/#{filename}_4k.jpg"
     end
 
     "public/#{filename}_4k.jpg"
