@@ -1,10 +1,11 @@
 = haml :_search_box
 
-.center.w-100
+.center.mw8
   .flex.flex-wrap.items-center.justify-center
     - locals[:posters].each do |poster|
       .w-20.ma2.tc
         %img(src="https://image.tmdb.org/t/p/w184#{poster}")
-        %a{href: "/poster?type=bluray&poster=#{poster}", class: 'blue b'} Blu-Ray
-        %span.blue.b &#124;
-        %a{href: "/poster?type=4k&poster=#{poster}", class: 'blue b'} 4K Ultra HD
+        .tc
+          %a{href: "/poster?type=bluray&poster=#{poster}", class: 'blue b'} Blu-Ray
+          %span.blue.b &#124;
+          %a{href: "/poster?type=4k&poster=#{poster}", class: 'blue b'} 4K Ultra HD
