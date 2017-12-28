@@ -14,34 +14,30 @@ module Posters
   end
 
   def create_bluray(filename)
-    if not File.file?("public/#{filename}_bluray.jpg")
+    unless File.file?("public/#{filename}_bluray.jpg")
       temp_poster = Down.download("https://image.tmdb.org/t/p/w500/#{filename}.jpg")
 
-      first_image  = MiniMagick::Image.new(temp_poster.path)
-      second_image = MiniMagick::Image.new('img/bluray.png')
-      result = first_image.composite(second_image) do |c|
-        c.compose 'Over'
-        c.geometry '100%'
+      MiniMagick::Tool::Convert.new do |convert|
+        convert << 'img/bluray.jpg'
+        convert << temp_poster.path
+        convert << '-append'
+        convert << 'public/' + filename + '_bluray.jpg'
       end
-
-      result.write "public/#{filename}_bluray.jpg"
     end
 
     "public/#{filename}_bluray.jpg"
   end
 
   def create_4k(filename)
-    if not File.file?("public/#{filename}_4k.jpg")
+    unless File.file?("public/#{filename}_4k.jpg")
       temp_poster = Down.download("https://image.tmdb.org/t/p/w500/#{filename}.jpg")
 
-      first_image  = MiniMagick::Image.new(temp_poster.path)
-      second_image = MiniMagick::Image.new('img/4k.png')
-      result = first_image.composite(second_image) do |c|
-        c.compose 'Over'
-        c.geometry '100%'
+      MiniMagick::Tool::Convert.new do |convert|
+        convert << 'img/4k.jpg'
+        convert << temp_poster.path
+        convert << '-append'
+        convert << 'public/' + filename + '_4k.jpg'
       end
-
-      result.write "public/#{filename}_4k.jpg"
     end
 
     "public/#{filename}_4k.jpg"
