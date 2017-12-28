@@ -3,14 +3,20 @@
   %head
     %title Movie Posters
     %link(rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css")
-  %body
-    #wrapper
-      #header
-        %h1 Movie Posters
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  %body.sans-serif
+    .flex.flex-column.h-100.justify-around
+      .w-100.tc
+        %a{href: '/', class: 'mt4 mb0 f1 blue b link dib'} Movie Posters
+        %p.mt1.mid-gray
+          Easily create custom UltraHD and Blu-ray posters
 
       #content
         =yield
 
-      #footer
-        %p
-          This is the footer.
+      .w-100
+        %p.tc.mid-gray.f6
+          Original posters provided by
+          %a{href: 'https://www.themoviedb.org/', class: 'blue'} The Movie Database
+
+

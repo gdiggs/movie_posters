@@ -1,5 +1,10 @@
-- locals[:posters].each do |poster|
-  .poster
-    %img(src="https://image.tmdb.org/t/p/w184#{poster}")
-    %a{href: "/poster?type=bluray&poster=#{poster}"} Blu-Ray
-    %a{href: "/poster?type=4k&poster=#{poster}"} 4K Ultra HD
+= haml :_search_box
+
+.center.w-100
+  .flex.flex-wrap.items-center.justify-center
+    - locals[:posters].each do |poster|
+      .w-20.ma2.tc
+        %img(src="https://image.tmdb.org/t/p/w184#{poster}")
+        %a{href: "/poster?type=bluray&poster=#{poster}", class: 'blue b'} Blu-Ray
+        %span.blue.b &#124;
+        %a{href: "/poster?type=4k&poster=#{poster}", class: 'blue b'} 4K Ultra HD

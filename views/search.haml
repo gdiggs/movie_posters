@@ -1,8 +1,11 @@
 = haml :_search_box
 
-- locals[:results].each do |movie|
-  .movie
-    = movie[:title]
-    = movie[:id]
-    %img(src="https://image.tmdb.org/t/p/w184#{movie[:poster_path]}")
-    %a{href: "/movie/#{movie[:id]}"} View
+.center.w-100
+  .flex.flex-wrap.items-center.justify-center
+    - locals[:results].each do |movie|
+      .w-20.ma2.tc
+        %a{href: "/movie/#{movie[:id]}", class: 'link'}
+          %img(src="https://image.tmdb.org/t/p/w184#{movie[:poster_path]}")
+          %div.blue.b.link
+            = movie[:title]
+            (#{ movie[:release_date].slice(0..3) })
