@@ -5,7 +5,7 @@
     - locals[:results].each do |movie|
       .w-20.ma2.tc
         %a{href: "/movie/#{movie[:id]}", class: 'link'}
-          %img(src="https://image.tmdb.org/t/p/w184#{movie[:poster_path]}")
+          %img(src="https://image.tmdb.org/t/p/w185#{movie[:poster_path]}")
           %div.blue.b.link
             = movie[:title]
             (#{ movie[:release_date].slice(0..3) })

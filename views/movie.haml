@@ -4,7 +4,7 @@
   .flex.flex-wrap.items-center.justify-center
     - locals[:posters].each do |poster|
       .w-20.ma2.tc
-        %img(src="https://image.tmdb.org/t/p/w184#{poster}")
+        %img(src="https://image.tmdb.org/t/p/w185#{poster}")
         .tc
           %a{href: "/poster?type=bluray&poster=#{poster}", class: 'blue b'} Blu-Ray
           %span.blue.b &#124;
