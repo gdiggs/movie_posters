@@ -1,0 +1,12 @@
+# flyctl launch added from .gitignore
+**/.DS_STORE
+**/*.swp
+**/*.rbc
+**/*.sass-cache
+pkg
+doc/api
+coverage
+**/.yardoc
+**/doc
+**/.env
+**/public/*.jpg
