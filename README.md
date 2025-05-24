@@ -8,7 +8,7 @@ Requires TheMovieDB API key.
 ```
 .env
 
-export TMDB=abcdefg0123456789
+TMDB=abcdefg0123456789
 ```
 
 ```bash

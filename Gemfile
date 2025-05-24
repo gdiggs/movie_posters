@@ -8,3 +8,5 @@ gem 'sinatra'
 gem 'themoviedb'
 gem 'puma'
 gem 'dotenv'
+
+gem "rackup", "~> 2.2"
